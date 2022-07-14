@@ -12,6 +12,23 @@ export default createGlobalStyle`
     color: ${({theme}) => theme.COLORS.WHITE};
     -webkit-font-smoothing: antialiased;
   }
+  body::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: ${({theme}) => theme.COLORS.PINK};
+    border-radius: 20px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    transform: scale(1.5);
+  }
 
   body, input, button, textarea {
     font-family: "Roboto Slab", serif;
