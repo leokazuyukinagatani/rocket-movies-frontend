@@ -49,10 +49,12 @@ export const User = styled.div`
     line-height: 24px;
     width: 164px;
     
-    span {
+    button {
       font-weight: 400;
       font-size: 14px;
       line-height: 18px;
+      background: none;
+      border: none;
       color: ${({theme}) => theme.COLORS.GRAY_100};
     }
 

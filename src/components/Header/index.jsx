@@ -1,7 +1,14 @@
 import { Input } from "../Input"
 import { Container, Profile, User} from "./styles"
+import { useAuth } from "../../hooks/auth" 
+import { api } from "../../services/api";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
 
 export function Header() {
+  const { signOut, user } = useAuth();
+  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder; 
+
   return(
     <Container>
       <h2>RocketMovies</h2>
@@ -10,13 +17,13 @@ export function Header() {
       />
       <User>
           <div>
-            <strong>Leo Kazuyuki Nagatani</strong>
-            <span>sair</span>
+            <strong>{user.name}</strong>
+            <button onClick={signOut}>sair</button>
           </div>
         <Profile to="/profile">
           <img 
-            src="https://github.com/leokazuyukinagatani.png" 
-            alt="imagem de perfil do usuário" 
+            src={avatarURL} 
+            alt={user.name} 
           />
         </Profile>
       </User>
