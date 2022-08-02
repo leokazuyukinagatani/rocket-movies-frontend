@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { api } from '../../services/api';
 import isEmail from 'validator/lib/isEmail';
+import { ToastContainer, toast } from 'react-toastify';
 
 export function SignUp() {
   const [name, setName] = useState(" ");
@@ -19,28 +20,64 @@ export function SignUp() {
   function handleSignUp(){
 
     if(!name || !email || !password){
-      return alert("Preencha todos os campos!");
+      return toast.error("Preencha todos os campos.", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+        });
     }
     if(!isEmail(email)){
-      return alert("Email inválido!");
+      return toast.error("Email invalido", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+        });
     }
     
     api.post("/users",{ name, email, password })
     .then(() => {
-      alert("Usuário cadastrado com sucesso.")
       navigate("/");
     })
     .catch( error => {
       if(error.response){
-        alert(error.response.data.message);
+        toast.error("Preencha todos os campos.", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored'
+          });
       }else{
-        alert("Não foi possível cadastrar o usuário");
+        toast.error("Não foi possivel cadastrar o usuário.", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored'
+          });
       }
     });
   }
 
   return(
     <Container>
+      <ToastContainer/>
       <Form>
         <h1>Rocket Movies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>

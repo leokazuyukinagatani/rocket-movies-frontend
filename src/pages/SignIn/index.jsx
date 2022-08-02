@@ -9,18 +9,33 @@ import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../hooks/auth'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function SignIn() {
   const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSignIn(){
-    signIn({ email, password })
+  async function handleSignIn(){
+    const error = await signIn({ email, password });
+    if(error){
+      return toast.error(String(error), {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+        });
+    }
   }
 
   return(
     <Container>
+      <ToastContainer limit={3}/>
       <Form>
         <h1>Rocket Movies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>

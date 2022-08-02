@@ -13,6 +13,13 @@ export const Container = styled.header`
   align-items: center;
   text-align: center;
   gap: 64px;
+  padding: 0 1rem;
+  .container-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
   > h2 {
     font-style: normal;
     font-weight: 700;

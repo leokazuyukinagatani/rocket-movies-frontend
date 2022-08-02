@@ -3,7 +3,7 @@ import { Container, Profile, User} from "./styles"
 import { useAuth } from "../../hooks/auth" 
 import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
-
+import logo from "../../assets/logo.png";
 
 export function Header() {
   const { signOut, user } = useAuth();
@@ -11,7 +11,10 @@ export function Header() {
 
   return(
     <Container>
-      <h2>RocketMovies</h2>
+      <div class="container-logo">
+        <img src={logo}/>
+        <h2>RocketMovies</h2>
+      </div>
       <Input
         placeholder="Pesquisar pelo título"     
       />

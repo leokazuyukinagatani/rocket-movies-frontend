@@ -7,6 +7,7 @@ import { useAuth } from '../../hooks/auth';
 import { useState } from "react";
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import { api } from "../../services/api";
+import { ToastContainer, toast } from "react-toastify";
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
@@ -24,10 +25,34 @@ export function Profile() {
       name,
       email,
       password: passwordNew,
-      old_password: passwordOld
+      old_password: passwordOld,
+      avatar
     }
 
-    await updateProfile({ user, avatarFile });
+    const error = await updateProfile({ user, avatarFile });
+    if(!error){
+      return toast.success("Perfil atualizado com sucesso!", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+        });
+    }else {
+      return toast.error(error, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+        });
+    }
   }
 
   function handleChangeAvatar(event) {
@@ -40,6 +65,7 @@ export function Profile() {
 
   return(
     <Container>
+      <ToastContainer/>
         <header>
           <Link to="/">
             <FiArrowLeft />

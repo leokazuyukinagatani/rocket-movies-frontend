@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services/api";
 
+
+
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }){
@@ -18,9 +20,9 @@ function AuthProvider({ children }){
       console.log(user, token);
     }catch (error){
       if(error.response){
-        alert(error.response.data.message);
+        return error.response.data.message;
       }else {
-        alert("Não foi possível entrar.")
+        return "Não foi possível entrar."
       }
     }
   }
@@ -46,13 +48,12 @@ function AuthProvider({ children }){
       localStorage.setItem("@rocketmovies:user", JSON.stringify(user)); 
 
       setData({ user, token: data.token  });
-      alert("Perfil atualizado com sucesso!");
     }catch(error){
       if(error.response){
-        alert(error.response.data.message);
+        return String(error.response.data.message);
       }
       else{
-        alert("Não foi possível atualizar o perfil.")
+        return "Não foi possível atualizar o perfil."
       }
     }
   }
