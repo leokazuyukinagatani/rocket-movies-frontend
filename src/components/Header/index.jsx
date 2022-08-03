@@ -11,7 +11,7 @@ export function Header() {
 
   return(
     <Container>
-      <div class="container-logo">
+      <div className="container-logo">
         <img src={logo}/>
         <h2>RocketMovies</h2>
       </div>
