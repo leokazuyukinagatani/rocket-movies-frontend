@@ -32,9 +32,10 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
+    font-size: 20px;
     font-family: "Roboto Slab", serif;
-    font-size: 16px;
     outline: none;
+
   }
 
   a {

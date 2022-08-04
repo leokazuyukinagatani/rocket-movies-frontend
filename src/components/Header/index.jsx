@@ -31,7 +31,6 @@ export function Header() {
         </Profile>
       </User>
       
-      
     </Container>
   )
 }

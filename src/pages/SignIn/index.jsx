@@ -6,36 +6,30 @@ import { Input } from '../../components/Input'
 
 import { Button } from '../../components/Button'
 
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../hooks/auth'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function SignIn() {
   const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleSignIn(){
     const error = await signIn({ email, password });
     if(error){
-      return toast.error(String(error), {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored'
-        });
+      return toast.error(String(error));
     }
+  }
+  function handleSignUp() {
+    navigate("/register");
   }
 
   return(
     <Container>
-      <ToastContainer limit={3}/>
       <Form>
         <h1>Rocket Movies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>
@@ -56,9 +50,8 @@ export function SignIn() {
 
         <Button title="Entrar" onClick={handleSignIn}/>
 
-        <Link to="/register">
-          Criar conta
-        </Link>
+        <Button  title="Criar conta" className="btn-register" onClick={handleSignUp}/>
+
       </Form>
       <Background/>
     </Container>

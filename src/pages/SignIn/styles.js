@@ -37,6 +37,12 @@ export const Form = styled.form`
     margin-top: 42px;
     color: ${({theme}) => theme.COLORS.PINK};
   }
+
+  .btn-register {
+    border: none;
+    background: none;
+    color: ${({theme}) => theme.COLORS.PINK};
+  }
 `;
 
 export const Background = styled.div`

@@ -10,7 +10,7 @@ import { Container, Form, ButtonBack, Content } from "./styles";
 import { FiArrowLeft } from "react-icons/fi";
 import { useState } from "react";
 import { api } from "../../services/api";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,18 +33,19 @@ export function New() {
   }
 
   async function handleNewMovie() {
-
     if(!title || !rating || !description){
       return toast.error("Preencha todos os campos");
     }
     try{
+     
       await api.post("/movies",{
         title,
         rating,
         description,
         tags
       });
-      navigate("/");
+      toast.success("Filme cadastrado com sucesso!",navigate("/"));
+
     }catch(error){
       if(error.response){
         return toast.error(error.response.data.message);
@@ -66,7 +67,6 @@ export function New() {
 
   return(
   <Container>
-    <ToastContainer limit={1} theme="colored"/>
     <Header/>
       <Form>
         <section>

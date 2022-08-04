@@ -9,9 +9,9 @@ export const Container = styled.div`
 export const Content = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 1rem;
-  margin: 4rem;
+  gap: 20px;
+  margin-top: 10px;
+  margin: 40px;
 
   button {
     background: none;
@@ -21,17 +21,17 @@ export const Content = styled.main`
   .title {
     display: flex;
     align-items: center;
-    gap: 1.9rem;
+    gap: 19px;
   }
   .image-profile {
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 19px;
+    height: 19px;
     border: 1px solid #3E3B47;
     border-radius: 50%;
   }
   .info {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 8px;
   }
 `;

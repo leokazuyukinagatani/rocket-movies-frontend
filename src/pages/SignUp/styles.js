@@ -41,6 +41,11 @@ export const Form = styled.form`
     justify-content: center;
     gap: 8px;
   }
+  .btn-login {
+    border: none;
+    background: none;
+    color: ${({theme}) => theme.COLORS.PINK};
+  }
 `;
 
 export const Background = styled.div`

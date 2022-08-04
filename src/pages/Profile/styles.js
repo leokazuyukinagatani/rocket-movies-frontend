@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
     span {
       font-size: 16px;
-      line-height: 21.1px;
+      line-height: 21px;
       color: ${({theme}) => theme.COLORS.PINK};
     }
   }

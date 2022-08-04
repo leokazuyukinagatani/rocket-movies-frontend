@@ -15,7 +15,7 @@ export const Container = styled.section`
       margin: 0;
       max-width: 225px;
       font-size: 16px;
-      line-height: 21.1px;
+      line-height: 21px;
       height: 48px;
       font-weight: 400;
       padding: 0 18px;

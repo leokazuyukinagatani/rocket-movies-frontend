@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.header`
   grid-area:header;
-  height: 11.6rem;
+  padding: 25px 0;
+  height: 115px;
   width: 100%;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -12,19 +13,18 @@ export const Container = styled.header`
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 6.4rem;
-  padding: 0 1rem;
+  gap: 64px;
   .container-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 10px;
   }
   > h2 {
     font-style: normal;
     font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3.2rem;
+    font-size: 24px;
+    line-height: 32px;
     color: ${({theme}) => theme.COLORS.PINK};
   }
 
@@ -33,7 +33,7 @@ export const Container = styled.header`
     max-width: 630px;
   }
   @media (max-width: 945px){
-    gap: 1rem;
+    gap: 10px;
     .container-logo h2 {
       display: none;
     }
@@ -43,13 +43,13 @@ export const Container = styled.header`
 export const Profile = styled(Link)`
  
   > img {
-    width: 5rem;
-    height: 5rem;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
-  @media (max-width: 945px){
-    width: 3rem;
-    height: 3rem;
+  @media (max-width: 700px){
+    width: 15px;
+    height: 15px;
     display: flex;
     align-items: center;
   }
@@ -59,19 +59,19 @@ export const Profile = styled(Link)`
 export const User = styled.div`
   display: flex;
   align-items: center;
-  gap: .9rem;
+  gap: 9px;
   > div {
     display: flex;
     flex-direction: column;
     text-align: right;
   
-    line-height: 2.4rem;
-    width: 16rem;
+    line-height: 24px;
+    width: 160px;
     
     button {
       font-weight: 400;
-      font-size: 1.4rem;
-      line-height: 1.8rem;
+      font-size: 14px;
+      line-height: 18px;
       background: none;
       border: none;
       color: ${({theme}) => theme.COLORS.GRAY_100};
@@ -79,15 +79,15 @@ export const User = styled.div`
 
     strong {
       font-weight: 700;
-      font-size: 1.4rem;
-      line-height: 1.8rem;
+      font-size: 14px;
+      line-height: 18px;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
    
   }
   @media (max-width: 945px){
       >div{
-        width: 3rem;
+        width: 30px;
       }
       strong {
         display: none;
