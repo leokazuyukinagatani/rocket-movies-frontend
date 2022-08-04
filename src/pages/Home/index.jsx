@@ -20,7 +20,7 @@ export function Home() {
               {id: 1, name: 'ficção'},
               {id: 2, name: 'aventura'}
             ],
-            score: 5
+            rating: 5
           }}
           />
 
@@ -30,7 +30,7 @@ export function Home() {
               {id: 1, name: 'ação'},
               {id: 2, name: 'carros'}
             ],
-            score: 4
+            rating: 4
 
           }}
           />
@@ -41,7 +41,7 @@ export function Home() {
               {id: 1, name: 'ação'},
               {id: 2, name: 'aventura'}
             ],
-            score: 2
+            rating: 2
 
           }}
           />

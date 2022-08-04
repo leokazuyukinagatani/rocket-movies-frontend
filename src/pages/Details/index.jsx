@@ -25,7 +25,7 @@ export function Details() {
         </div>
         <div className="title">
           <h1>Titulo do filme</h1>
-          <Stars size={20} score={5}/>
+          <Stars size={20} rating={5}/>
         </div>
         <div className="info">
           <img 

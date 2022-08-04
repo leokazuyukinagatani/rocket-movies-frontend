@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Content  = styled.div`
 
-  padding: 0 64px;
-  overflow-y: auto;
-
+  padding: 0 6.4rem;
+  height: 100vh;
+ 
 `;
