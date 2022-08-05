@@ -36,6 +36,9 @@ export function New() {
     if(!title || !rating || !description){
       return toast.error("Preencha todos os campos");
     }
+    if(newTag){
+      return toast.error("Existe uma tag não adicionada");
+    }
     try{
      
       await api.post("/movies",{
