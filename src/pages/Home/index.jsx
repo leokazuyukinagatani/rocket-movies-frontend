@@ -4,7 +4,7 @@ import { Section } from '../../components/Section';
 import { Movie } from '../../components/Movie';
 import { Button } from '../../components/Button';
 import { FiPlus } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { toast } from 'react-toastify';
@@ -14,15 +14,22 @@ import { Input } from '../../components/Input';
 export function Home() {
 
   const[movies, setMovies] = useState([]);
-  const[title, setTitle] = useState("");
+  const[search, setSearch] = useState("");
   
-  const input = <Input placeholder="Pesquisar pelo título" value={title} onChange={e => setTitle(e.target.value)} />
+  const input = <Input placeholder="Pesquisar pelo título" value={search} onChange={e => setSearch(e.target.value)} />
 
   const button = <Link to="/new"><Button title="Adicionar filme" icon={FiPlus}/></Link>
+  
+  const navigate = useNavigate();
+  
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
+  
   useEffect(() => {
     async function fetchMovies(){
       try{
-        const response = await api.get(`/movies?title=${title}`);
+        const response = await api.get(`/movies?title=${search}`);
         console.log(response);
         setMovies(response.data);
       }catch(error){
@@ -36,7 +43,7 @@ export function Home() {
     }
 
     fetchMovies();
-  },[title]);
+  },[search]);
 
   return(
     <Container>
@@ -44,11 +51,12 @@ export function Home() {
       <Content>
         <Section title="Meus filmes" elem={button}>
           {
-            movies && movies.map((movie, index) =>(
-              <Movie key={index} data={movie}/>
+            movies && movies.map((movie) =>(
+              <Movie key={movie.id} data={movie}
+              onClick={() => handleDetails(movie.id)}
+              /> 
             ))
           }
-         
           
         </Section>
       </Content>

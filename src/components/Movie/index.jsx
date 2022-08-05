@@ -9,7 +9,7 @@ export function Movie({data, ...rest}) {
       <h1>{data.title}</h1>
       <Stars size={12} rating={data.rating}/>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis incidunt officiis mollitia at fugit omnis earum eius a veritatis, voluptate est commodi esse error temporibus nulla eaque! Explicabo, minus repellat.
+        {data.description}
       </p>
       {
         data.tags && 
